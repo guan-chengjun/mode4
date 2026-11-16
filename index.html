@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D 过山车模拟器</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <!-- 3D 画布挂载点 -->
+  <div id="app"></div>
+
+  <!-- 侧边控制面板 -->
+  <aside id="panel">
+    <h1>🎢 过山车控制台</h1>
+
+    <!-- 运行控制 -->
+    <section class="group">
+      <h2>运行控制</h2>
+      <div class="row">
+        <button id="btn-toggle" class="primary">▶ 启动</button>
+        <label class="checkbox">
+          <input type="checkbox" id="chk-loop" checked /> 循环运行
+        </label>
+      </div>
+      <label class="slider">
+        速度倍率 <span id="speed-factor-text">1.0×</span>
+        <input type="range" id="speed-factor" min="0.2" max="3" step="0.1" value="1" />
+      </label>
+      <div class="stats">
+        当前速度：<span id="speed-text">0.0</span> m/s
+      </div>
+    </section>
+
+    <!-- 相机控制 -->
+    <section class="group">
+      <h2>相机</h2>
+      <div class="row">
+        <button id="btn-cam-persp" class="toggle active">透视</button>
+        <button id="btn-cam-ortho" class="toggle">正交</button>
+      </div>
+      <label class="checkbox">
+        <input type="checkbox" id="chk-follow" /> 跟随车厢视角
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" id="chk-wireframe" /> 线框透视（轨道骨架）
+      </label>
+    </section>
+
+    <!-- 天气切换 -->
+    <section class="group">
+      <h2>天气</h2>
+      <div class="weather-grid">
+        <button class="weather-btn active" data-weather="sunny">☀️ 晴天</button>
+        <button class="weather-btn" data-weather="cloudy">☁️ 阴天</button>
+        <button class="weather-btn" data-weather="dusk">🌇 黄昏</button>
+        <button class="weather-btn" data-weather="rainy">🌧️ 雨夜</button>
+        <button class="weather-btn" data-weather="night">🌙 夜晚</button>
+      </div>
+    </section>
+
+    <p class="tip">鼠标左键拖拽旋转 · 滚轮缩放 · 右键平移</p>
+  </aside>
+
+  <!-- 资源加载提示 -->
+  <div id="loading">正在加载资源…</div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
